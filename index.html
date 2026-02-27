@@ -1,54 +1,79 @@
-<html>
+<!DOCTYPE html>
+<html lang="he">
 <head>
-<title>Hebrew Sample</title>
-<style>
-body {
-    background-color: #f4f1ea; /* Light parchment color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Times New Roman', serif;
-}
+    <meta charset="UTF-8">
+    <title>Hebrew</title>
+    <style>
+        body {
+            background-color: #f4f1ea;
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'SBL Hebrew', 'Times New Roman', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.verse {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center;
-    max-width: 80%;
-    border-left: 5px solid #8b5e3c; /* Accented border */
-}
+        h1 {
+            color: #5d4037;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-.text {
-    display: block;
-    direction: rtl; /* Sets text flow from Right-to-Left */
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
 
-.ref {
-    display: block;
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    font-style: italic;
-    border-top: 1px solid #eee;
-    padding-top: 0.5rem;
-}
-</style>
+        .verse-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-right: 6px solid #8b5e3c; /* Moved to right for RTL flow */
+            transition: transform 0.2s ease;
+        }
+
+        .verse-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .text {
+            display: block;
+            direction: rtl;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: right;
+        }
+
+        .ref {
+            display: block;
+            font-size: 1rem;
+            color: #95a5a6;
+            font-style: italic;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="verse">
-<span class="text">
-בֵּאלֹהִים אֲהַלֵּל דָּבָר בַּיהוָה אֲהַלֵּל דָּבָר׃
-</span>
-<span class="ref">Psalm 56:10</span>
-</div>
+    <h1>Hebrew</h1>
+
+    <div class="container">
+        <div class="verse-card">
+            <span class="text">בֵּאלֹהִים אֲהַלֵּל דָּבָר בַּיהוָה אֲהַלֵּל דָּבָר׃</span>
+            <span class="ref">Psalm 56:10</span>
+        </div>
+    </div>
 
 </body>
 </html>
