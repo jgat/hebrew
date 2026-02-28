@@ -28,7 +28,7 @@ def find_verses(books, vocab):
       for verse in chapter:
         hit = [w.lemma_core in vocab for w in verse]
         ratio = sum(hit) / len(verse)
-        if ratio > 0.5:
+        if ratio > 0.6:
           pn = sum([morphology.is_proper_noun(w) for w in verse])
           pn_ratio = pn / len(verse)
           good_verses.append((ratio, pn_ratio, verse))
@@ -57,5 +57,5 @@ if __name__ == '__main__':
   #pn = morphology.by_lemma(morphology.proper_nouns(all_words))
   #most_common_words(pn)
 
-  vocab = get_vocab(all_words, 6)
+  vocab = get_vocab(all_words, 7)
   find_verses(books, vocab)

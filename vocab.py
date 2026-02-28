@@ -3,6 +3,7 @@ import morphology
 BONUS = [
   '2895', # tov
   '1984', # halal
+  '543', # amen
 ]
 
 LESSON = {
@@ -34,6 +35,26 @@ LESSON = {
     '5291', # naarah (see also 5292)
     '4310', # mi
     '8034', # shem (see also 8036 for aramaic)
+  ],
+
+  7: [
+    '127', # adamah
+    '929', # behemah
+    '8451', # torah
+    '1285', # berit
+    '4438', # malkut
+    '2403', # chattah (see also 2402 for aramaic)
+    '3207', # yad (see also 3208 for aramaic)
+    '5869', # ayin (see also 5870 for aramaic)
+    '7272', # regel
+    '5483', # sus (TODO: solve for 5483a / 5483b)
+    '5484', # susa
+    '1', # av
+    '517', # em
+    '1121', # ben
+    '1323', # bat
+    '2145', # zachar
+    '5347', # neqevah
   ],
 }
 
