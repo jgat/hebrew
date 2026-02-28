@@ -28,11 +28,11 @@ def find_verses(books, vocab):
       for verse in chapter:
         hit = [w.lemma_core in vocab for w in verse]
         ratio = sum(hit) / len(verse)
-        if ratio > 0.6:
+        if ratio > 0.5:
           pn = sum([morphology.is_proper_noun(w) for w in verse])
           pn_ratio = pn / len(verse)
           good_verses.append((ratio, pn_ratio, verse))
-  good_verses.sort(key=lambda x: (-x[0], x[1]-x[0]))
+  good_verses.sort(key=lambda x: (x[1]-x[0], -x[0]))
 
   for r, pnr, v in good_verses:
     print(v.ref())
