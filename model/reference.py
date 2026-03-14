@@ -44,6 +44,9 @@ class WordRef:
   def __format__(self, spec):
     return format(str(self), spec)
 
+  def __hash__(self):
+    return hash((self.chapter, self.verse, self.word))
+
   def has_end(self):
     return self.chapter == END or self.verse == END or self.word == END
 

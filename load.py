@@ -3,6 +3,8 @@ import json
 
 import model
 
+# hebrew.json is the output of this script:
+# https://github.com/openscriptures/morphhb/blob/master/morphhbXML-to-JSON.py
 FILENAME = 'hebrew.json'
 
 def load(filename=FILENAME):

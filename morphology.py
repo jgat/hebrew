@@ -9,7 +9,7 @@ def is_proper_noun(word):
 
 
 def proper_nouns(words):
-  return [w for w in words if is_proper_noun(w)]
+  return {w for w in words if is_proper_noun(w)}
 
 
 def by_lemma(words):

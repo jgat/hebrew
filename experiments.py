@@ -17,28 +17,44 @@ def print_all(words):
 
 
 def get_vocab(all_words, lesson):
-  return set(vocab.upto(lesson)
-             + vocab.most_common(morphology.proper_nouns(all_words), 50))
+  """Return the vocab up to lesson #, and also the 50 most common proper nouns in the Bible"""
+  return set(vocab.upto(lesson)), set(vocab.most_common(morphology.proper_nouns(all_words), 50))
 
 
-def find_verses(books, vocab):
+def find_verses(books, vocab, proper_nouns):
   good_verses = []
   for book in books.values():
     for chapter in book:
       for verse in chapter:
-        hit = [w.lemma_core in vocab for w in verse]
-        ratio = sum(hit) / len(verse)
-        if ratio > 0.6:
-          pn = sum([morphology.is_proper_noun(w) for w in verse])
-          pn_ratio = pn / len(verse)
-          good_verses.append((ratio, pn_ratio, verse))
-  good_verses.sort(key=lambda x: (x[1]-x[0], -x[0]))
+        vocab_ratio = sum([w.lemma_core in vocab for w in verse]) / len(verse)
+        pn_ratio = sum([w.lemma_core in proper_nouns and w.lemma_core not in vocab for w in verse]) / len(verse)
+        if vocab_ratio > 0.7:
+          good_verses.append((vocab_ratio, pn_ratio, verse))
+  good_verses.sort(key=lambda x: (-x[0], -x[1]))
 
-  for r, pnr, v in good_verses:
-    print(v.ref())
-    print(f'{r:.4f} vocab, {pnr:.4f} proper nouns')
+  for vr, pnr, v in good_verses:
+    print(v.ref(), f'- {vr*100:.2f}% vocab & {pnr*100:.2f}% proper nouns')
     print(v.text())
     print()
+
+
+
+def find_chapters(books, vocab, proper_nouns):
+  good_chapters = []
+  for book in books.values():
+    for chapter in book:
+      words = chapter.words()
+      vocab_ratio = sum([w.lemma_core in vocab for w in words]) / len(words)
+      pn_ratio = sum([w.lemma_core in proper_nouns and w.lemma_core not in vocab for w in words]) / len(words)
+      if vocab_ratio + pn_ratio > 0.4:
+        good_chapters.append((vocab_ratio, pn_ratio, chapter))
+  good_chapters.sort(key=lambda x: (-x[0]-x[1], -x[0], -x[1]))
+
+  for vr, pnr, c in good_chapters:
+    print(c.ref(), f'- {vr*100:.2f}% vocab & {pnr*100:.2f}% proper nouns')
+    print()
+    print()
+
 
 
 if __name__ == '__main__':
@@ -57,5 +73,5 @@ if __name__ == '__main__':
   #pn = morphology.by_lemma(morphology.proper_nouns(all_words))
   #most_common_words(pn)
 
-  vocab = get_vocab(all_words, 7)
-  find_verses(books, vocab)
+  vocab, proper_nouns = get_vocab(all_words, 11)
+  find_verses(books, vocab, proper_nouns)

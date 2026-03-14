@@ -24,6 +24,9 @@ class Word:
   def detail(self):
     return f'<{self.book} {self.ref}: {self.text}\u200e {self.lemma} {self.morph}>'
 
+  def __hash__(self):
+    return hash((self.book, self.ref))
+
 
 @dataclass(frozen=True)
 class Passage:
@@ -98,6 +101,14 @@ class Chapter:
   def __len__(self): return len(self.verses)
 
   def __iter__(self): return iter(self.verses)
+
+  def words(self):
+    return [w for verse in self for w in verse]
+
+  def ref(self):
+    if len(self) < 1 or len(self.verses[0]) < 1: return '[empty chapter]'
+    w = self.verses[0].words[0]
+    return f'{w.book} {w.ref.chapter}'
 
   def slice(self, a_verse, a_word, z_verse, z_word):
     """Returns a subset of the words in this chapter, bounded by a-z."""

@@ -39,22 +39,74 @@ LESSON = {
 
   7: [
     '127', # adamah
-    '929', # behemah
-    '8451', # torah
     '1285', # berit
-    '4438', # malkut
-    '2403', # chattah (see also 2402 for aramaic)
-    '3207', # yad (see also 3208 for aramaic)
-    '5869', # ayin (see also 5870 for aramaic)
-    '7272', # regel
-    '5483', # sus (TODO: solve for 5483a / 5483b)
-    '5484', # susa
     '1', # av
     '517', # em
     '1121', # ben
     '1323', # bat
     '2145', # zachar
     '5347', # neqevah
+    # '8451', # torah
+    # '4438', # malkut
+    # '2403', # chattah (see also 2402 for aramaic)
+  ],
+
+  8: [
+    '1004', # bayith (see also 1005 for aramaic)
+    '4100', # mah (see also 4101 for aramaic)
+    # ha article + interrogative
+  ],
+
+  9: [
+    'l', # l of possession
+    '776', # erets
+    '4428', # melek
+  ],
+
+  10: [
+    '241', # ozer
+    '251', # ach
+    '269', # achoth
+    '7218', # rosh
+    '7272', # regel
+    '3207', # yad (see also 3208 for aramaic)
+    '5869', # ayin (see also 5870 for aramaic)
+
+    # Reading R1
+    '1817', # 
+    '7979', # 
+    '3678', # 
+    '6086', # 
+    '953', # 
+    '4940', # 
+    '929', # behemah
+    '352', # 
+    '7716', # 
+    '5483', # sus (TODO: solve for 5483a / 5483b)
+    '5484', # susa
+    '6499', # 
+    '6510', # 
+    '1581', # 
+    '2543', # 
+    '5795', # 
+    '120', # 
+    '3206', # 
+    '3207', # 
+    '7776', # 
+    '5175', # 
+    # '2421b', # TODO: solve for chayyah = "life", not "animal"
+  ],
+
+  11: [
+    '3605', # 
+    '1992', # 
+    '2004', # 
+    '859', # 
+    '587', # 
+    '5892', # 
+    '1961', # 
+    '5650', # 
+    '3426', # 
   ],
 }
 
@@ -63,7 +115,7 @@ def upto(lesson):
   for l, vocab in LESSON.items():
     if l <= lesson:
       res += vocab
-  return res
+  return set(res)
 
 
 def most_common(words, n):
