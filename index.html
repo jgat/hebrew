@@ -1,180 +1,72 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hebrew Practice Index</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQ52LEFGRJ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-VQ52LEFGRJ');
+        gtag('config', 'G-VQ52LEFGRJ');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hebrew Practice: Week 2</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .week-link {
+            display: block;
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #5d4037;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 6px solid #8b5e3c;
+        }
+
+        .week-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .week-link span {
+            display: block;
+            font-size: 0.9rem;
+            color: #8b5e3c;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Hebrew Practice: Week 2 (BBH 1–6)</h1>
+    <h1>Hebrew Practice</h1>
 
     <div class="intro">
-    Here are some sentences using the vocab up to BBH Lesson 6. Click "Show
-    Vocab" to see additional vocab. Practice reading and saying these verses.
+        Select a week to practice reading and vocabulary.
     </div>
 
     <div class="container">
-        <div class="verse-card">
-            <span class="text">בֵּאלֹהִים אֲהַלֵּל דָּבָר בַּיהוָה אֲהַלֵּל דָּבָר׃</span>
-            <span class="ref">Psalm 56:10</span>
-            <!--
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">בֵּאלֹהִים</td><td class="meaning">in אֱלֹהִים</td></tr>
-                    <tr><td class="hebrew-word">בַּיהוָה</td><td class="meaning">in יהוה</td></tr>
-                </table>
-            </details>
-            -->
-                <!--<span class="translation-text">In God, whose word I praise, in the <span class="lord">Lord</span>, whose word I praise,</span>-->
-        </div>
+        <a href="week4.html" class="week-link">
+            <span>Term 1 Week 4</span>
+            BBH Lessons 1–11 & Reading 1
+        </a>
 
-        <div class="verse-card">
-            <span class="text">יְהוָה אִישׁ מִלְחָמָה יְהוָה שְׁמוֹ׃</span>
-            <span class="ref">Exodus 15:3</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">מִלְחָמָה</td><td class="meaning">of war</td></tr>
-                    <!--<tr><td class="hebrew-word">שְׁמוֹ</td><td class="meaning">his שֵׁם</td></tr>-->
-                </table>
-            </details>
-        </div>
-
-        <div class="verse-card">
-            <span class="text">הַלְלוּ יָהּ הַלְלוּ עַבְדֵי יְהוָה הַלְלוּ אֶת־שֵׁם יְהוָה׃</span>
-            <span class="ref">Psalm 113:1</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">עַבְדֵי</td><td class="meaning">servants</td></tr>
-                </table>
-            </details>
-        </div>
-
-        <div class="verse-card">
-            <span class="text">וַיְהִי דְּבַר־יְהוָה אֶל־שְׁמַעְיָהוּ אִישׁ־הָאֱלֹהִים לֵאמֹר׃</span>
-            <span class="ref">2 Chronicles 11:2</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">וַיְהִי</td><td class="meaning">and there was / and it came (from הָיָה)</td></tr>
-                    <tr><td class="hebrew-word">אֶל</td><td class="meaning">to</td></tr>
-                    <tr><td class="hebrew-word">לֵאמֹר</td><td class="meaning">saying</td></tr>
-                </table>
-            </details>
-        </div>
-
-        <div class="verse-card">
-            <span class="text">הַאֱלֹהֵי מִקָּרֹב אָנִי נְאֻם־יְהוָה וְלֹא אֱלֹהֵי מֵרָחֹק׃</span>
-            <span class="ref">Jeremiah 23:23</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">מִקָּרֹב</td><td class="meaning">nearby</td></tr>
-                    <tr><td class="hebrew-word">נְאֻם</td><td class="meaning">declares</td></tr>
-                    <tr><td class="hebrew-word">מֵרָחֹק</td><td class="meaning">far away</td></tr>
-                </table>
-            </details>
-        </div>
-
-        <div class="verse-card">
-            <span class="text">הוּא יַלְוְךָ וְאַתָּה לֹא תַלְוֶנּוּ הוּא יִהְיֶה לְרֹאשׁ וְאַתָּה תִּהְיֶה לְזָנָב׃</span>
-            <span class="ref">Deuteronomy 28:44</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">יַלְוְךָ</td><td class="meaning">will lend to you</td></tr>
-                    <tr><td class="hebrew-word">תַלְוֶנּוּ</td><td class="meaning">will lend to him</td></tr>
-                    <tr><td class="hebrew-word">יִהְיֶה</td><td class="meaning">will be (from הָיָה)</td></tr>
-                    <tr><td class="hebrew-word">לְרֹאשׁ</td><td class="meaning">the head</td></tr>
-                    <tr><td class="hebrew-word">לְזָנָב</td><td class="meaning">the tail</td></tr>
-                </table>
-            </details>
-        </div>
-
-        <div class="verse-card">
-            <span class="text">מִי נָחַנִי עַד־אֱדוֹם׃ הֲלֹא־אַתָּה אֱלֹהִים זְנַחְתָּנוּ וְלֹא־תֵצֵא אֱלֹהִים בְּצִבְאוֹתֵינוּ׃</span>
-            <span class="ref">Psalm 60:9b-10</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">נָחַנִי</td><td class="meaning">will lead me</td></tr>
-                    <tr><td class="hebrew-word">עַד</td><td class="meaning">into</td></tr>
-                    <tr><td class="hebrew-word">זְנַחְתָּנוּ</td><td class="meaning">(you) have rejected us</td></tr>
-                    <tr><td class="hebrew-word">תֵצֵא</td><td class="meaning">goes out</td></tr>
-                    <tr><td class="hebrew-word">בְּצִבְאוֹתֵינוּ</td><td class="meaning">with our armies</td></tr>
-                </table>
-            </details>
-        </div>
-
-        <!--
-        <div class="verse-card">
-            <span class="text">שְׁמַע יִשְׂרָאֵל יְהוָה אֱלֹהֵינוּ יְהוָה אֶחָד׃</span>
-            <span class="ref">Deuteronomy 6:4</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">שְׁמַע</td><td class="meaning">hear</td></tr>
-                    <tr><td class="hebrew-word">אֱלֹהֵינוּ</td><td class="meaning">our אֱלֹהִים</td></tr>
-                    <tr><td class="hebrew-word">אֶחָד</td><td class="meaning">one</td></tr>
-                </table>
-            </details>
-        </div>
-
-        <div class="verse-card">
-            <span class="text">וַיְהִי דְּבַר־יְהוָה אֶל־יִרְמְיָהוּ לֵאמֹר׃</span>
-            <span class="ref">Jeremiah 29:30</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">וַיְהִי</td><td class="meaning">and there was / and it came (related to הָיָה)</td></tr>
-                    <tr><td class="hebrew-word">אֶל</td><td class="meaning">to</td></tr>
-                    <tr><td class="hebrew-word">לֵאמֹר</td><td class="meaning">saying</td></tr>
-                </table>
-            </details>
-        </div>
-
-        <div class="verse-card">
-            <span class="text">וַיְהִי־אִישׁ מֵהַר־אֶפְרָיִם וּשְׁמוֹ מִיכָיְהוּ׃</span>
-            <span class="ref">Judges 17:1</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">וַיְהִי</td><td class="meaning">and there was / and it came (from הָיָה)</td></tr>
-                    <tr><td class="hebrew-word">מֵהַר</td><td class="meaning">from mount</td></tr>
-                    <tr><td class="hebrew-word">וּשְׁמוֹ</td><td class="meaning">whose שֵׁם</td></tr>
-                </table>
-            </details>
-        </div>
-
-        <div class="verse-card">
-            <span class="text">וַיְהִי־נַעַר מִבֵּית לֶחֶם יְהוּדָה מִמִּשְׁפַּחַת יְהוּדָה וְהוּא לֵוִי וְהוּא גָר־שָׁם׃</span>
-            <span class="ref">Judges 17:7</span>
-            <details>
-                <summary>Show Vocab</summary>
-                <table class="vocab-table">
-                    <tr><td class="hebrew-word">וַיְהִי</td><td class="meaning">and there was / and it came (from הָיָה)</td></tr>
-                    <tr><td class="hebrew-word">מִבֵּית לֶחֶם</td><td class="meaning">from בֵּית לֶחֶם</td></tr>
-                    <tr><td class="hebrew-word">מִמִּשְׁפַּחַת</td><td class="meaning">from the family</td></tr>
-                    <tr><td class="hebrew-word">גָר</td><td class="meaning">sojourned</td></tr>
-                    <tr><td class="hebrew-word">שָׁם</td><td class="meaning">there</td></tr>
-                </table>
-            </details>
-        </div>
+        <a href="week2.html" class="week-link">
+            <span>Term 1 Week 2</span>
+            BBH Lessons 1–6
+        </a>
     </div>
-    -->
 
 </body>
+
 </html>
