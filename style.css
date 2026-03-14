@@ -20,6 +20,32 @@ h1 {
     letter-spacing: 2px;
 }
 
+.intro {
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    color: #5d4037;
+    line-height: 1.8;
+    font-size: 1.15rem;
+    border: 1px solid rgba(139, 94, 60, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #8b5e3c;
+}
+
 .container {
     max-width: 800px;
     width: 100%;
@@ -29,9 +55,10 @@ h1 {
     background: white;
     padding: 2.5rem;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     margin-bottom: 30px;
-    border-right: 6px solid #8b5e3c;  /* Moved to right for RTL flow */
+    border-right: 6px solid #8b5e3c;
+    /* Moved to right for RTL flow */
     transition: transform 0.2s ease;
     width: 100%;
 }
@@ -108,7 +135,8 @@ summary {
 
 .vocab-table .meaning {
     color: #515a5a;
-    text-align: left; /* Keep English left-aligned */
+    text-align: left;
+    /* Keep English left-aligned */
     font-size: 1.2rem;
     direction: ltr;
 }
@@ -120,15 +148,24 @@ summary {
 /* Mobile Optimizations */
 @media (max-width: 600px) {
     body {
-        padding: 20px 15px; /* Less space around the edges */
+        padding: 20px 15px;
+        /* Less space around the edges */
     }
 
     h1 {
-        font-size: 1.2rem; /* Shrink the header so it doesn't take up half the screen */
+        font-size: 1.2rem;
+        /* Shrink the header so it doesn't take up half the screen */
     }
 
     .verse-card {
-        padding: 1.5rem 1rem; /* More room for the text inside the card */
+        padding: 1.5rem 1rem;
+        /* More room for the text inside the card */
+    }
+
+    .intro {
+        font-size: 1rem;
+        padding: 16px;
+        margin-bottom: 25px;
     }
 
     .text {
@@ -137,6 +174,7 @@ summary {
     }
 
     .translation-text {
-        font-size: 1.3rem; /* Larger translation for easy reading while walking/commuting */
+        font-size: 1.3rem;
+        /* Larger translation for easy reading while walking/commuting */
     }
 }
