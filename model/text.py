@@ -47,6 +47,16 @@ class Passage:
     return '\n'.join(f'{w.book} {w.ref:8}: {w.text:10}\u200e\t{w.lemma:10} {w.morph}'
                      for w in self.words)
 
+  def text(self, vocab):
+    words = []
+    for w in self.words:
+      text = w.text.replace('/', '')
+      if w.lemma_core in vocab:
+        words.append(text)
+      else:
+        words.append(f'_({text})_')
+    return ' '.join(words)
+
 
 @dataclass(frozen=True)
 class Verse:
@@ -63,6 +73,9 @@ class Verse:
   def __len__(self): return len(self.words)
 
   def __iter__(self): return iter(self.words)
+
+  def __lt__(self, other):
+    return self.ref() < other.ref()
 
   def slice(self, a, z):
     """Returns a subset of the words in this verse, bounded by a-z."""
@@ -156,6 +169,11 @@ class Book:
 
   def __iter__(self): return iter(self.chapters)
 
+  def verses(self):
+    for c in self.chapters:
+      for v in c.verses:
+        yield v
+  
   def lookup(self, ref):
     """Look up a passage by reference.RangeRef"""
     # check bounds & resolve END
