@@ -70,7 +70,7 @@ def find_verses_by_word(books, all_vocab, new_vocab, proper_nouns):
       print(verse.text())
       print()
 
-def find_sliding_windows(books, vocab, proper_nouns, window_size=10):
+def find_sliding_windows(books, vocab, proper_nouns, window_size=5):
   good_windows = []
   from sliding_window import sliding_window
   for book in books.values():
@@ -80,11 +80,11 @@ def find_sliding_windows(books, vocab, proper_nouns, window_size=10):
       vocab_ratio = sum([w.lemma_core in vocab for w in words]) / len(words)
       pn_ratio = sum([w.lemma_core in proper_nouns for w in words]) / len(words)
       good_words = sum([w.lemma_core in proper_nouns or w.lemma_core in vocab for w in words]) / len(words)
-      if good_words > 0.84 and pn_ratio < 0.33 and book.name != 'Genesis':
+      if good_words > 0.9 and pn_ratio < 0.4 and book.name != 'Genesis':
         good_windows.append((vocab_ratio, pn_ratio, book.name, passage))
   good_windows.sort(key=lambda x: (-x[0], -x[0]-x[1]))
 
-  for vr, pnr, book_name, passage in good_windows:
+  for vr, pnr, book_name, passage in good_windows[:25]:
     print(book_name, passage.ref, f'- {len(passage.words)} words, {vr*100:.2f}% vocab & {pnr*100:.2f}% proper nouns')
     print(passage.text(vocab.union(proper_nouns.keys())))
     print()
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     all_words.extend(book[''].words)
 
 
-  all_vocab = get_vocab(None, 40, 9)
+  all_vocab = get_vocab(None, 45, 10)
   pn = morphology.by_lemma(morphology.proper_nouns(all_words))
   
   #find_chapters(books, all_vocab, pn)

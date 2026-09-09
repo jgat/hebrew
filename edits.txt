@@ -1,0 +1,6 @@
+Judges 13:14, 18th word, changed from
+  ["צִוִּיתִ֖י/הָ", "6680", "HVpp1cs/Pp3fs"]
+to
+  ["צִוִּיתִ֖י/הָ", "6680", "HVpp1cs/Sp3fs"]
+as it's morphologically a suffix, and this fixes the invariant where no word
+contains both a verb and a pronoun.

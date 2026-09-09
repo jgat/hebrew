@@ -29,6 +29,8 @@ def load_vocab(filename='vocab.csv'):
             if lesson and strong_num:
                 vocab[lesson].append(strong_num)
 
+    vocab['Lesson #0'].append(None) # l, b, c/b
+
     return dict(vocab)
 
 
@@ -56,6 +58,7 @@ def upto(lesson_num, reading_num=0, filename='vocab.csv'):
             filename = file_path
 
     res = set()
+    res.add(None) # l, b, c/b
     with open(filename, mode='r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:

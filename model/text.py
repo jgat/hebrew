@@ -27,6 +27,9 @@ class Word:
   def __hash__(self):
     return hash((self.book, self.ref))
 
+  def __str__(self):
+    return f"<{self.book} {self.ref} - {self.text} {self.lemma} {self.morph}>"
+
 
 @dataclass(frozen=True)
 class Passage:
@@ -43,9 +46,16 @@ class Passage:
   def __str__(self):
     return ' '.join(w.text for w in self.words)
 
-  def detail(self):
-    return '\n'.join(f'{w.book} {w.ref:8}: {w.text:10}\u200e\t{w.lemma:10} {w.morph}'
-                     for w in self.words)
+  def detail(self, vocab=None):
+    text = []
+    missing_lemmas = set()
+    for w in self.words:
+      line = f'{w.book} {w.ref:8}: {w.text:10}\u200e\t{w.lemma:10} {w.morph}'
+      if vocab is not None and w.lemma_core not in vocab:
+        line += f'\t\t********'
+        missing_lemmas.add(w.lemma_core)
+      text.append(line)
+    return '\n'.join(text) + '\n\nMissing lemmas: ' + ', '.join(sorted(missing_lemmas))
 
   def text(self, vocab):
     words = []
@@ -169,10 +179,22 @@ class Book:
 
   def __iter__(self): return iter(self.chapters)
 
+  def __repr__(self):
+    return f"Book({self.name!r}, {len(self.chapters)} chapters)"
+  
+  def __str__(self):
+    return f"{self.name} ({len(self.chapters)} chapters)"
+
   def verses(self):
     for c in self.chapters:
       for v in c.verses:
         yield v
+  
+  def words(self):
+    for c in self.chapters:
+      for v in c.verses:
+        for w in v:
+          yield w
   
   def lookup(self, ref):
     """Look up a passage by reference.RangeRef"""
